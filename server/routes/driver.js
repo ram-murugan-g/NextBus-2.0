@@ -1,0 +1,11 @@
+import express from 'express';
+import { getDriverVehicles, startDriverTrip, stopDriverTrip, updatePassengerCount } from '../controllers/driverController.js';
+import { authenticate } from '../middleware/authMiddleware.js';
+import { requireRole } from '../middleware/roleMiddleware.js';
+const router = express.Router();
+router.use(authenticate);
+router.get('/vehicles', getDriverVehicles);
+router.post('/start-trip', startDriverTrip);
+router.post('/stop-trip', stopDriverTrip);
+router.post('/update-count', updatePassengerCount);
+export default router;

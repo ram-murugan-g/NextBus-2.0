@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": "8462f2e4-2593-444f-a508-1df5fff4c2a6",
+      "name": "Ram Murugan",
+      "email": "ram@nextbus.in",
+      "phone": "9876543210",
+      "password_hash": "$2a$12$U7XkkjNnmu0f2XXdn.LCHeUgKH/DWsfUvld6P8J8vOdSoYdFNuO0G",
+      "role": "user",
+      "created_at": "2026-04-12T06:19:50.174Z"
+    },
+    {
+      "id": "d0d88661-e90f-4240-afc0-17f4d2452709",
+      "name": "Ram Murugan",
+      "email": "rammurugan.g123@gmail.com",
+      "phone": "8667788441",
+      "password_hash": "$2a$12$15kGSXsItiGfNmjQHg35dueiVQ//6JRXucrj9hYAxcD6h71aY4TEe",
+      "role": "user",
+      "created_at": "2026-04-12T06:23:03.791Z"
+    },
+    {
+      "id": "130b84f3-837f-4ab4-904c-daa0c82031a5",
+      "name": "password123",
+      "email": "dummmy@mail.in",
+      "phone": "9876543266",
+      "password_hash": "$2a$12$UjREQ6WjfHaY8iR2kKTKbeGQlhhl4686uQl5DEmJXYlNkOjmlPWXm",
+      "role": "user",
+      "created_at": "2026-04-12T06:34:37.428Z"
+    },
+    {
+      "id": "9958c177-9c03-4680-aacc-3dde0b32e49a",
+      "name": "Demo User",
+      "email": "user@nextbus.in",
+      "phone": "1234567890",
+      "password_hash": "$2a$12$4blK/vdHRebVtwa8lh3tFuIm45U3EJG8uqnrW5rqh9X0jXwmb1Jcu",
+      "role": "user",
+      "created_at": "2026-05-09T13:50:00.000Z"
+    },
+    {
+      "id": "10f98d6c-fefe-4af3-a542-417be6353198",
+      "name": "Demo Driver",
+      "email": "driver@nextbus.in",
+      "phone": "0987654321",
+      "password_hash": "$2a$12$4blK/vdHRebVtwa8lh3tFuIm45U3EJG8uqnrW5rqh9X0jXwmb1Jcu",
+      "role": "driver",
+      "created_at": "2026-05-09T13:50:00.000Z"
+    }
+  ],
+  "vehicles": [],
+  "trips": [],
+  "passengerData": [],
+  "userVehicles": [],
+  "notifications": []
+}
