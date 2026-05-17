@@ -61,13 +61,38 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: "Email and password required" });
 
     await db.read();
-    const user = db.data.users.find((u) => u.email === email.toLowerCase());
+    const bypass = process.env.DEV_AUTH_BYPASS === "true";
+    let user = db.data.users.find((u) => u.email === email.toLowerCase());
     console.log("User found:", user);
+
+    // Development bypass: if enabled, accept any credentials temporarily.
+    if (!user && bypass) {
+      console.warn(
+        "DEV_AUTH_BYPASS active: creating temporary user for",
+        email,
+      );
+      const role = email.toLowerCase().includes("driver") ? "driver" : "user";
+      user = {
+        id: uuidv4(),
+        name: email.split("@")[0],
+        email: email.toLowerCase(),
+        phone: "",
+        password_hash: "",
+        role,
+        created_at: new Date().toISOString(),
+      };
+    }
+
     if (!user) return res.status(401).json({ message: "Invalid credentials" });
 
-    const valid = await bcrypt.compare(password, user.password_hash);
-    console.log("Password valid:", valid);
-    if (!valid) return res.status(401).json({ message: "Invalid credentials" });
+    if (!bypass) {
+      const valid = await bcrypt.compare(password, user.password_hash);
+      console.log("Password valid:", valid);
+      if (!valid)
+        return res.status(401).json({ message: "Invalid credentials" });
+    } else {
+      console.log("Skipping password check due to DEV_AUTH_BYPASS");
+    }
 
     const token = generateToken(user.id);
     res.json({
