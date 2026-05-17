@@ -13,7 +13,7 @@ export const useSocket = () => {
     if (initialized.current) return;
     initialized.current = true;
 
-    socket = io(import.meta.env.VITE_SERVER_URL || "http://localhost:5000", {
+      socket = io(import.meta.env.VITE_SERVER_URL || "http://localhost:5001", {
       transports: ["websocket", "polling"],
     });
 
