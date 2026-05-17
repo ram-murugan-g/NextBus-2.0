@@ -17,7 +17,7 @@ api.interceptors.response.use(
   (err) => {
     if (err.response?.status === 401) {
       useAuthStore.getState().logout();
-      window.location.href = "/login";
+      window.location.href = "/dashboard";
     }
     return Promise.reject(err);
   },
